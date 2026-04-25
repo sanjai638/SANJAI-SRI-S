@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int is_palindrome(int num) {
+    int rev = 0, original = num;
+    while (num > 0) {
+        rev = rev * 10 + (num % 10);
+        num /= 10;
+    }
+    return rev == original;
+}
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    printf("Numbers:\n");
+    for (int i = 1; i <= N; i++) {
+        printf("%d", i);
+        if (i != N) printf(" ");
+    }
+    printf("\n");
+
+    printf("Even Numbers:\n");
+    int first = 1;
+    for (int i = 1; i <= N; i++) {
+        if (i % 2 == 0) {
+            if (!first) printf(" ");
+            printf("%d", i);
+            first = 0;
+        }
+    }
+    printf("\n");
+
+    int palindrome_count = 0;
+    for (int i = 1; i <= N; i++) {
+        if (is_palindrome(i)) palindrome_count++;
+    }
+
+    printf("Palindrome Count:\n%d\n", palindrome_count);
+
+    return 0;
+}
