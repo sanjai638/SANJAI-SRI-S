@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    float load, area, strength;
+    float length, width;
+    printf("--- Concrete Compressive Strength Calculator ---\n");
+    printf("Enter the maximum load at failure (in kN): ");
+    scanf("%f", &load);
+    load = load * 1000;
+    printf("Enter the length of the cube (in mm): ");
+    scanf("%f", &length);
+    printf("Enter the width of the cube (in mm): ");
+    scanf("%f", &width);
+    area = length * width;
+    if (area > 0) {
+        strength = load / area;
+        printf("\n--- Results ---\n");
+        printf("Maximum Load: %.2f N\n", load);
+        printf("Area of Specimen: %.2f mm^2\n", area);
+        printf("Compressive Strength: %.2f N/mm^2 (MPa)\n", strength);
+    } else {
+        printf("Error: Area cannot be zero.\n");
+    }
+
+    return 0;
+}
